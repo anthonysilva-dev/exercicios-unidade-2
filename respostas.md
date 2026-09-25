@@ -1,0 +1,13 @@
+# Questões para pensar
+
+## 1. No item 2, o que muda se você usar / em vez de // no Python? E em C, como fica?
+## R.: Em Python, / efetua uma divisão convencional, produzindo um resultado de ponto flutuante. Por exemplo, 5 / 2 → 2.5. Ao utilizar //, efetuamos uma divisão inteira por piso (floor division). Por exemplo, 5 // 2 → 2. Em C, temos uma situação diferente: não existe o operador //, apenas /, e o comportamento da divisão depende dos tipos dos operandos. Ao efetuarmos 5 / 2, como os dois operandos são inteiros, o resultado também será inteiro: 5 / 2 → 2. Por outro lado, ao efetuarmos a divisão com ao menos um operando de ponto flutuante, o resultado será de ponto flutuante. Por exemplo, 5.0 / 2 → 2.5.
+
+## 2. No item 4, teste c * (9/5) no seu programa em C e explique o resultado.
+## R.: Em C, quando efetuamos 9 / 5, como os dois números são inteiros, o resultado será uma divisão inteira: 9 / 5 → 1. Dessa forma, ao utilizarmos c * (9/5), a operação será equivalente a c * 1, resultando apenas no valor de c. Isso ocorre porque a divisão entre dois inteiros em C também produz um resultado inteiro.
+
+## 3. No item 9, por que o C imprime 1 e o Python imprime True? O que isso revela sobre como C representa "verdadeiro" e "falso"?
+## R.: Em Python, os resultados de operações lógicas e comparações são representados diretamente pelos valores booleanos True e False. Em C, essas operações também produzem valores que representam verdadeiro e falso, mas verdadeiro é representado por 1 e falso por 0. Dessa forma, ao imprimirmos uma expressão lógica com %d em C, o resultado será 1 quando a condição for verdadeira e 0 quando for falsa. Isso mostra que, em C, os valores booleanos podem ser representados numericamente por 1 e 0.
+
+## 4. Escolha um dos programas e rode gcc -S no seu .c. Abra o .s e localize onde acontece uma das operações (uma soma, por exemplo).
+## R.: Ao utilizar gcc -S no programa da questão 5, foi gerado um arquivo .s contendo o código em Assembly correspondente ao programa em C. No trecho responsável pelo cálculo do perímetro, podemos encontrar as instruções `addss %xmm1, %xmm0` e `addss %xmm0, %xmm0`. A primeira realiza a soma dos valores correspondentes à base e à altura, enquanto a segunda soma esse resultado a ele mesmo, realizando a multiplicação por 2. Dessa forma, o Assembly reproduz a operação `2 * (base + altura)` utilizada no cálculo do perímetro do retângulo.
